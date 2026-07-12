@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Expenses</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Expense List</h2>
+
+<table border="1" width="100%">
+
+<tr>
+
+<th>Category</th>
+
+<th>Amount</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for expense in expenses %}
+
+<tr>
+
+<td>{{ expense.category }}</td>
+
+<td>₱ {{ expense.amount }}</td>
+
+<td>{{ expense.expense_date }}</td>
+
+<td>
+
+<a href="/edit_expense/{{ expense.id }}">
+
+Edit
+
+</a>
+
+|
+
+<a href="/delete_expense/{{ expense.id }}">
+    Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+
+Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+</html>
