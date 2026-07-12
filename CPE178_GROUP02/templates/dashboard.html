@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Welcome, {{ fullname }}</h1>
+
+    <div class="card">
+
+        <h2>Dashboard</h2>
+
+        <p>Total Expenses</p>
+
+        <h1>₱ {{ total }}</h1>
+
+        <div class="menu">
+
+    <a href="{{ url_for('add_expense') }}">
+        <button type="button">Add Expense</button>
+    </a>
+
+    <a href="{{ url_for('view_expenses') }}">
+        <button type="button">View Expenses</button>
+    </a>
+
+    <button type="button" disabled>Prediction</button>
+
+    <button type="button" disabled>Reports</button>
+
+</div>
+
+        <br>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
