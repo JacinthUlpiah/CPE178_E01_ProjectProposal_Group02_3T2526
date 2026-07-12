@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Reports</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Expense Report</h2>
+
+    <h3>Total Expenses</h3>
+
+    <h1>₱ {{ "%.2f"|format(overall) }}</h1>
+
+    <table>
+
+        <tr>
+            <th>Category</th>
+            <th>Total Amount</th>
+        </tr>
+
+        {% for expense in expenses %}
+
+        <tr>
+
+            <td>{{ expense.category }}</td>
+
+            <td>₱ {{ "%.2f"|format(expense.total) }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('dashboard') }}">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Prediction</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Overspending Risk Prediction</h2>
+
+<form method="POST">
+
+<label>Monthly Income</label>
+
+<input
+type="number"
+name="income"
+required>
+
+<label>Total Expenses</label>
+
+<input
+type="number"
+name="total_expense"
+required>
+
+<label>Food</label>
+
+<input
+type="number"
+name="food"
+required>
+
+<label>Shopping</label>
+
+<input
+type="number"
+name="shopping"
+required>
+
+<label>Transportation</label>
+
+<input
+type="number"
+name="transportation"
+required>
+
+<label>Bills</label>
+
+<input
+type="number"
+name="bills"
+required>
+
+<label>Entertainment</label>
+
+<input
+type="number"
+name="entertainment"
+required>
+
+<button>
+
+Predict
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<br>
+
+<h2>
+
+{{ prediction }}
+
+</h2>
+
+{% endif %}
+
+<br>
+
+<a href="{{ url_for('dashboard') }}">
+
+Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+
+</html>

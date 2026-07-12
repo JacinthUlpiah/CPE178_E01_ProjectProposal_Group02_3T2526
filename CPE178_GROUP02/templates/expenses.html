@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Expenses</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Expense History</h2>
+
+<table>
+
+<tr>
+
+<th>Category</th>
+
+<th>Amount</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for expense in expenses %}
+
+<tr>
+
+<td>{{ expense.category }}</td>
+
+<td>₱ {{ expense.amount }}</td>
+
+<td>{{ expense.expense_date }}</td>
+
+<td>
+
+<a href="{{ url_for('edit_expense', id=expense.id) }}">
+
+Edit
+
+</a>
+
+|
+
+<a href="{{ url_for('delete_expense', id=expense.id) }}"
+onclick="return deleteConfirmation();">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="{{ url_for('dashboard') }}">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Edit Expense</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Edit Expense</h2>
+
+<form method="POST">
+
+<label>Category</label>
+
+<input
+type="text"
+name="category"
+value="{{ expense.category }}">
+
+<label>Amount</label>
+
+<input
+type="number"
+step="0.01"
+name="amount"
+value="{{ expense.amount }}">
+
+<label>Payment Method</label>
+
+<input
+type="text"
+name="payment_method"
+value="{{ expense.payment_method }}">
+
+<label>Date</label>
+
+<input
+type="date"
+name="expense_date"
+value="{{ expense.expense_date }}">
+
+<label>Notes</label>
+
+<textarea
+name="notes">{{ expense.notes }}</textarea>
+
+<br><br>
+
+<button>
+
+Update Expense
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
